@@ -1,3 +1,42 @@
+Kısaca Nedir?
+
+OpenWA, Meta'nın resmi ve ücretli (veya kısıtlayıcı) WhatsApp Cloud API'sine alternatif olarak topluluk tarafından geliştirilmiş, WhatsApp web istemcilerini tersine mühendislik yöntemleriyle kullanarak WhatsApp'ı programlanabilir hale getiren bir köprü uygulamasıdır. İçerisinde modern bir React web yönetim paneli (dashboard) de barındırır.
+Ne İşe Yarar?
+
+Geliştiricilerin WhatsApp üzerinden mesaj gönderme, alma ve hesap yönetimi süreçlerini otomatize etmelerini sağlar.
+
+    Çoklu Oturum (Multi-Session): Tek bir sunucuda aynı anda birden fazla WhatsApp numarasını çalıştırabilirsiniz.
+
+    REST API & Webhook: Sistemlerinize entegre etmek için HTTP uç noktaları (REST) sunar ve gelen mesajlar, durum güncellemeleri gibi olayları (events) Webhook aracılığıyla anlık olarak kendi sunucunuza iletir.
+
+    Gelişmiş Mesajlaşma: Metin, medya (resim, video, belge), emoji tepkileri, mesaj düzenleme, toplu mesajlaşma ve grup yönetimi gibi WhatsApp'ın neredeyse tüm yeteneklerini API üzerinden sunar.
+
+    AI (Yapay Zeka) Entegrasyonu: Model Context Protocol (MCP) sunucu desteği sayesinde, Claude, Cursor veya diğer AI ajanlarının (Agent) WhatsApp'ı doğrudan yönetebilmesi için özel araçlar (tools) sağlar.
+
+    Bot / Otomasyon Uçları: Chatwoot, Typebot veya n8n gibi popüler otomasyon ve müşteri destek platformlarıyla eklentiler (plugins) aracılığıyla entegre olabilir.
+
+(Not: Resmi bir Meta ürünü olmadığı için (whatsapp-web.js ve @whiskeysockets/baileys kullanır), hesap kapanma/banlanma riski vardır. Bu sebeple kişisel veya kritik ticari hesaplar yerine, otomasyona özel ayrı numaralarla kullanılması tavsiye edilir.)
+Bağımlılıklar (Dil, OS, Ortam)
+
+    Programlama Dili & Çatı: TypeScript diliyle yazılmıştır. Arka uç (Backend) Node.js ve NestJS framework'ü kullanılarak, Ön uç (Dashboard) ise React (Vite) ile geliştirilmiştir.
+
+    Veritabanı ve Depolama (Tak-Çalıştır Mimari):
+
+        Veritabanı: Varsayılan olarak kurulum gerektirmeyen SQLite kullanır, ancak yapılandırma ile üretim ortamı için PostgreSQL'e geçilebilir.
+
+        Önbellek: Opsiyonel olarak Redis destekler.
+
+        Medya Depolama: Yerel disk veya S3/MinIO uyumlu bulut depolama kullanılabilir.
+
+    İşletim Sistemi ve Çalışma Ortamı:
+
+        Herhangi bir işletim sisteminde (Windows, macOS, Linux) çalışabilir.
+
+        Docker: Geliştiriciler tarafından en çok tavsiye edilen kullanım yöntemi Docker'dır. docker-compose kullanılarak veritabanı, önbellek ve API sunucusu tek komutla sıfır ayar (zero-config) ile ayağa kaldırılabilir.
+
+        Ayrıca Kubernetes (K8s) için "health check" (sağlık kontrolü) uç noktaları mevcuttur.
+
+
 <p align="center">
   <img src="docs/logo/openwa_logo.webp" alt="OpenWA Logo" width="200"/>
 </p>
